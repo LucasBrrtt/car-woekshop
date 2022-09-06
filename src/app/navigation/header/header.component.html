@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+          <a class="nav-link text-light" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" routerLinkActive="true" [routerLink]="['/inventory']">Inventory</a>
+          <a class="nav-link text-light" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" [routerLink]="['/inventory']">Inventory</a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"

@@ -46,9 +46,8 @@
                         <td>{{ row.qtd }}</td>
                         <td>
                             <div class="teste">
-                                <button type="button" class="btn btn-primary me-2 btn-sm btn-block "><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-success me-2 btn-sm btn-block"><i class="fa fa-edit"></i></button>
-                                <button type="button" class="btn btn-danger me-2 btn-sm btn-block"><i class="fa fa-trash"></i></button>
+                                <button type="button" class="btn btn-primary me-2 btn-sm btn-block "><i class="fa fa-eye" style="font-size: 16px;" [routerLink]="['/inventory', row.id]"></i></button>
+                                <!-- <button type="button" class="btn btn-danger me-2 btn-sm btn-block"><i class="fa fa-trash" style="font-size: 20px;"></i></button> -->
                             </div>
                         </td>
                     </tr>

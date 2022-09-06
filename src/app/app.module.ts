@@ -11,13 +11,15 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { InventoryService } from './inventory/inventory.service';
+import { EquipmentDetailComponent } from './equipment-detail/equipment-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    InventoryComponent
+    InventoryComponent,
+    EquipmentDetailComponent
   ],
   imports: [
     BrowserModule,

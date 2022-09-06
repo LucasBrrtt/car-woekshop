@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 
 import { Inventory } from "./inventory.model";
 
-
 import { API } from '../app-api';
 import { map, Observable } from 'rxjs';
 
@@ -13,5 +12,9 @@ export class InventoryService {
 
     getItemInventory(): Observable<Inventory[]> {
         return this.http.get(`${API}/inventory`).pipe(map((response: any) => response));
+    }
+
+    itemById(id: string): Observable<Inventory>{
+        return this.http.get(`${API}/inventory/${id}`).pipe(map((response: any) => response));
     }
 } 
