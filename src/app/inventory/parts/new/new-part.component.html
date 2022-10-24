@@ -1,0 +1,42 @@
+<div class="container main-container">
+    <h3>New Part</h3>
+    <form [formGroup]="newPartForm">
+        <fieldset>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Name</label>
+                <input type="text" id="disabledTextInput" class="form-control" formControlName="name"
+                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['name'] }">
+                <span class="text-danger" *ngIf="displayMessage['name']">
+                    <p [innerHTML]="displayMessage['name']"></p>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Quantity</label>
+                <input type="number" id="disabledTextInput" class="form-control" formControlName="qtd"
+                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['qtd'] }">
+                <span class="text-danger" *ngIf="displayMessage['qtd']">
+                    <p [innerHTML]="displayMessage['qtd']"></p>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Price</label>
+                <input type="text" id="disabledTextInput" class="form-control" formControlName="price"
+                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['price'] }" currencyMask
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                <span class="text-danger" *ngIf="displayMessage['price']">
+                    <p [innerHTML]="displayMessage['price']"></p>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                    formControlName="description"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [routerLink]="['/inventory']">Back</button>&nbsp;
+                <button type="submit" class="btn btn-success" (click)="register(newPartForm.value)"
+                    [disabled]="!this.newPartForm.valid">Register</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

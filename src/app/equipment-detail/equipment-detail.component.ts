@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Inventory } from '../inventory/inventory.model';
-import { InventoryService } from '../inventory/inventory.service';
+import { Part } from '../inventory/parts/part.model';
+import { InventoryService } from '../inventory/parts/part.service';
 
 @Component({
   selector: 'app-equipment-detail',
@@ -10,7 +10,7 @@ import { InventoryService } from '../inventory/inventory.service';
 })
 export class EquipmentDetailComponent implements OnInit {
 
-  inventory: Inventory | undefined;
+  inventory: Part | undefined;
 
   constructor(private inventoryService: InventoryService, private route: ActivatedRoute) { }
 

@@ -1,0 +1,47 @@
+<div class="container main-container">
+
+    <h1>Inventory</h1>
+
+    <p>
+        <a class="btn btn-success" [routerLink]="['/parts-new']">ADD PART</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="bg-dark">
+            <tr>
+                <th class="text-light">Name</th>
+                <th class="text-light">Quantity</th>
+                <th class="text-light">Amount</th>
+                <th class="text-light">Total Amount</th>
+                <th class="text-light"></th>
+            </tr>
+        </thead>
+        <tr *ngFor="let list of inventory">
+            <td>
+                {{ list.name }}
+            </td>
+            <td>
+                {{ list.qtd }}
+            </td>
+            <td>
+                {{ list.price | currency:'BRL':'symbol':'1.2-2':'pt' }}
+            </td>
+            <td>
+                {{ list.price * list.qtd | currency:'BRL':'symbol':'1.2-2':'pt' }}
+            </td>
+            <td class="text-right">
+                <div>
+                    <a class="btn btn-info" [routerLink]="['/']">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-warning" [routerLink]="['/']">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-danger" [routerLink]="['/']">
+                        <span class="fa fa-search"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

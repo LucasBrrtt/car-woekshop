@@ -16,38 +16,55 @@
   "profile": {
     "name": "typicode"
   },
-
   "inventory": [
     {
       "id": 1,
-      "name": "Outro produto",
+      "name": "Pastilha do freio - Bosch - Palio/Siena/Strada 1996 até 2005",
       "description": "Equipamento adicionado para testes",
-      "qtd": 10
+      "qtd": 10,
+      "price": 60
     },
     {
       "id": 2,
-      "name": "Um produto",
+      "name": "Fusível - lâmina - 15 amperes",
       "description": "Equipamento adicionado para testes",
-      "qtd": 10
+      "qtd": 50,
+      "price": 0.87
     },
     {
       "id": 3,
-      "name": "Um prohthyhduto",
+      "name": "Fusível - lâmina - 10 amperes",
       "description": "Equipamento adicionado para testes",
-      "qtd": 10
+      "qtd": 39,
+      "price": 0.87
     },
     {
       "id": 4,
-      "name": "Um pvfvfvfvrohthyhduto",
+      "name": "Fusível - lâmina - 30 amperes",
       "description": "Equipamento adicionado para testes",
-      "qtd": 10
+      "qtd": 16,
+      "price": 1.02
     },
     {
       "id": 5,
-      "name": "Umed pededrohthyhduto",
+      "name": "Óleo De Motor 5w40 Total Quartz 9000 Sintético 1lt",
       "description": "Equipamento adicionado para testes",
-      "qtd": 10
+      "qtd": 5,
+      "price": 49.9
+    },
+    {
+      "id": 5,
+      "name": "Pneu 225/35R20 93W RA301 Sport Aptany",
+      "description": "Equipamento adicionado para testes",
+      "qtd": 5,
+      "price": 475.86
+    },
+    {
+      "name": "ythyth",
+      "qtd": 5,
+      "price": 1400,
+      "description": "",
+      "id": 6
     }
-
   ]
 }
