@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Part } from '../inventory/parts/part.model';
-import { PartService } from '../inventory/parts/part.service';
+import { Part } from '../../../../inventory/parts/part.model';
+import { PartService } from '../../part.service';
 
 @Component({
-  selector: 'app-equipment-detail',
-  templateUrl: './equipment-detail.component.html',
-  styleUrls: ['./equipment-detail.component.css']
+  selector: 'app-detail-part',
+  templateUrl: './detail-part.component.html',
+  styleUrls: ['./detail-part.component.css']
 })
-export class EquipmentDetailComponent implements OnInit {
+
+export class DetailPartComponent implements OnInit {
 
   inventory: Part | undefined;
 
@@ -20,6 +21,7 @@ export class EquipmentDetailComponent implements OnInit {
       console.log(this.inventory);
       
     });
+
   }
 
 }

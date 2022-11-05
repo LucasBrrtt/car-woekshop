@@ -1,5 +1,5 @@
 import { Part } from '../part.model';
-import { InventoryService } from '../part.service';
+import { PartService } from '../part.service';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -12,12 +12,17 @@ export class ListPartComponent implements OnInit {
 
   public inventory: Part[] = [];
 
-  constructor(private inventoryService: InventoryService) { }
+  constructor(private partService: PartService) { }
 
   ngOnInit(): void {
-    this.inventoryService.getItemInventory().subscribe((list) => {
+    this.partService.getItemInventory().subscribe((list) => {
       this.inventory = list;
     });
   }
+
+register(a: any){
+  console.log(a);
+  
+}
 
 }

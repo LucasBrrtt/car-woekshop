@@ -13,11 +13,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { HomeComponent } from './navigation/home/home.component';
-import { InventoryService } from './inventory/parts/part.service';
+import { PartService } from './inventory/parts/part.service';
 import { ListPartComponent } from './inventory/parts/list/list-part.component';
 import { NewPartComponent } from './inventory/parts/new/new-part.component';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { DetailPartComponent } from './inventory/parts/detail/detail-part/detail-part.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     HeaderComponent,
     HomeComponent,
     ListPartComponent,
-    NewPartComponent
+    NewPartComponent,
+    DetailPartComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     CurrencyMaskModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [InventoryService],
+  providers: [PartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

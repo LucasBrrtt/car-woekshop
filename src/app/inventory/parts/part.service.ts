@@ -7,7 +7,7 @@ import { API } from '../../app-api';
 import { catchError, map, Observable } from 'rxjs';
 
 @Injectable()
-export class InventoryService {
+export class PartService {
     constructor(private http: HttpClient) { }
 
     getItemInventory(): Observable<Part[]> {

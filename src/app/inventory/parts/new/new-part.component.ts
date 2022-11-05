@@ -1,7 +1,7 @@
 import { fromEvent, map, merge, Observable } from 'rxjs';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, Validators, FormControlName, FormGroup } from '@angular/forms';
-import { InventoryService } from '../part.service';
+import { PartService } from '../part.service';
 import { Part } from '../part.model';
 import { HttpClient } from '@angular/common/http';
 import { DisplayMessage, GenericValidator, ValidationMessages } from '../../../utils/generic-form-validation';
@@ -23,7 +23,7 @@ export class NewPartComponent implements OnInit, AfterViewInit {
   genericValidator: GenericValidator;
   validationMessages: ValidationMessages;
 
-  constructor(private fb: FormBuilder, private inventoryService: InventoryService, private http: HttpClient, private router: Router) {
+  constructor(private fb: FormBuilder, private partService: PartService, private http: HttpClient, private router: Router) {
     this.validationMessages = {
       name: {
         required: 'Name Required',
@@ -59,7 +59,7 @@ export class NewPartComponent implements OnInit, AfterViewInit {
   }
 
   register(value: any): void {
-    this.inventoryService.addItem(value)
+    this.partService.addItem(value)
       .subscribe(data => {
         this.router.navigate(['/inventory'])
       });
