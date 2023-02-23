@@ -20,9 +20,9 @@
     {
       "id": 1,
       "name": "Pastilha do freio - Bosch - Palio/Siena/Strada 1996 até 2005",
-      "description": "Equipamento adicionado para testes",
-      "qtd": 10,
-      "price": 60
+      "qtd": 11,
+      "price": 60,
+      "description": "Equipamento adicionado para testes"
     },
     {
       "id": 2,
@@ -65,6 +65,13 @@
       "price": 1400,
       "description": "",
       "id": 6
+    },
+    {
+      "id": 7,
+      "name": "roda 2",
+      "qtd": 2,
+      "price": 20,
+      "description": "Teste"
     }
   ]
 }

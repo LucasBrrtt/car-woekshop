@@ -1,0 +1,43 @@
+<div class="container main-container">
+
+    <h1>Edit Part</h1>
+    <hr>
+
+    <form [formGroup]="editPartForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name" placeholder="Part Name"
+                [ngClass]="{'is-invalid': displayMessage['name'] }">
+            <span class="text-danger" *ngIf="displayMessage['name']">
+                <p [innerHTML]="displayMessage['name']"></p>
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="qtd" class="form-label">Quantity</label>
+            <input type="number" id="qtd" class="form-control" formControlName="qtd" placeholder="Quantity of Parts"
+                [ngClass]="{'is-invalid': displayMessage['qtd'] }">
+            <span class="text-danger" *ngIf="displayMessage['qtd']">
+                <p [innerHTML]="displayMessage['qtd']"></p>
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" id="price" class="form-control" formControlName="price" placeholder="Piece Price"
+                currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                [ngClass]="{'is-invalid': displayMessage['price'] }">
+            <span class="text-danger" *ngIf="displayMessage['price']">
+                <p [innerHTML]="displayMessage['price']"></p>
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                formControlName="description"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" [routerLink]="['/inventory']">Back</button>&nbsp;
+            <button type="submit" class="btn btn-success" [disabled]="!this.editPartForm.valid" (click)="updatePart()">Edit</button>
+        </div>
+    </form>
+
+</div>

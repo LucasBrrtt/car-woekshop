@@ -16,9 +16,10 @@ import { HomeComponent } from './navigation/home/home.component';
 import { PartService } from './inventory/parts/part.service';
 import { ListPartComponent } from './inventory/parts/list/list-part.component';
 import { NewPartComponent } from './inventory/parts/new/new-part.component';
+import { DetailPartComponent } from './inventory/parts/detail/detail-part.component';
+import { EditPartComponent } from './inventory/parts/edit/edit-part.component';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { DetailPartComponent } from './inventory/parts/detail/detail-part/detail-part.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DetailPartComponent } from './inventory/parts/detail/detail-part/detail
     HomeComponent,
     ListPartComponent,
     NewPartComponent,
-    DetailPartComponent
+    DetailPartComponent,
+    EditPartComponent
   ],
   imports: [
     BrowserModule,

@@ -3,4 +3,5 @@ export interface Part {
     name: string,
     qtd: number,
     price: number,
+    description: string
 }

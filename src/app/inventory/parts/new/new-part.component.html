@@ -3,25 +3,25 @@
     <form [formGroup]="newPartForm">
         <fieldset>
             <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">Name</label>
-                <input type="text" id="disabledTextInput" class="form-control" formControlName="name"
-                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['name'] }">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" formControlName="name" placeholder="Part Name"
+                    [ngClass]="{'is-invalid': displayMessage['name'] }">
                 <span class="text-danger" *ngIf="displayMessage['name']">
                     <p [innerHTML]="displayMessage['name']"></p>
                 </span>
             </div>
             <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">Quantity</label>
-                <input type="number" id="disabledTextInput" class="form-control" formControlName="qtd"
-                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['qtd'] }">
+                <label for="qtd" class="form-label">Quantity</label>
+                <input type="number" id="qtd" class="form-control" formControlName="qtd" placeholder="Quantity of Parts"
+                    [ngClass]="{'is-invalid': displayMessage['qtd'] }">
                 <span class="text-danger" *ngIf="displayMessage['qtd']">
                     <p [innerHTML]="displayMessage['qtd']"></p>
                 </span>
             </div>
             <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">Price</label>
-                <input type="text" id="disabledTextInput" class="form-control" formControlName="price"
-                    placeholder="Disabled input" [ngClass]="{'is-invalid': displayMessage['price'] }" currencyMask
+                <label for="price" class="form-label">Price</label>
+                <input type="text" id="price" class="form-control" formControlName="price" placeholder="Piece Price"
+                    [ngClass]="{'is-invalid': displayMessage['price'] }" currencyMask
                     [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
                 <span class="text-danger" *ngIf="displayMessage['price']">
                     <p [innerHTML]="displayMessage['price']"></p>

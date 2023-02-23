@@ -1,31 +1,28 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, Validators, FormControlName, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
-import { fromEvent, map, merge, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { fromEvent, merge, Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { DisplayMessage, GenericValidator, ValidationMessages } from '../../../utils/generic-form-validation';
 import { PartService } from '../part.service';
-import { Part } from '../part.model';
 
 @Component({
-  selector: 'app-new-part',
-  templateUrl: './new-part.component.html',
-  styleUrls: ['./new-part.component.css']
+  selector: 'app-detail-part',
+  templateUrl: './detail-part.component.html',
+  styleUrls: ['./detail-part.component.css']
 })
-export class NewPartComponent implements OnInit, AfterViewInit {
+export class DetailPartComponent implements OnInit {
 
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[] | any;
 
-  public newPartForm: FormGroup | any;
-  public inventory: Part[] = [];
+  public editPartForm: FormGroup | any;
 
   displayMessage: DisplayMessage = {};
   genericValidator: GenericValidator;
   validationMessages: ValidationMessages;
 
-  constructor(private fb: FormBuilder, private partService: PartService, private http: HttpClient, private router: Router) {
+  constructor(private fb: FormBuilder, private partService: PartService, private router: Router, private route: ActivatedRoute) {
     this.validationMessages = {
       name: {
         required: 'Name Required',
@@ -43,12 +40,15 @@ export class NewPartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.newPartForm = this.fb.group({
+    this.editPartForm = this.fb.group({
+      id: '',
       name: ['', [Validators.required, Validators.minLength(2)]],
       qtd: ['', [Validators.required]],
       price: ['', [Validators.required]],
       description: ['']
     });
+
+    this.fillForm();
   }
 
   ngAfterViewInit(): void {
@@ -56,12 +56,24 @@ export class NewPartComponent implements OnInit, AfterViewInit {
       .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
 
     merge(...controlBlurs).subscribe(() => {
-      this.displayMessage = this.genericValidator.processarMensagens(this.newPartForm)
+      this.displayMessage = this.genericValidator.processarMensagens(this.editPartForm)
     });
   }
 
-  register(value: any): void {
-    this.partService.addItem(value)
+  fillForm() {
+    this.partService.itemById(this.route.snapshot.params['id']).subscribe((res) => {
+      this.editPartForm.patchValue({
+        id: res.id,
+        name: res.name,
+        qtd: res.qtd,
+        price: res.price,
+        description: res.description
+      });
+    });
+  }
+
+  updatePart() {
+    this.partService.updateItem(this.route.snapshot.params['id'], this.editPartForm.value)
       .subscribe(data => {
         this.router.navigate(['/inventory']);
       });
